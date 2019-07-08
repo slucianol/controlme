@@ -1,8 +1,15 @@
 ﻿language: csharp
 mono: none
 dotnet: 2.1.502
+addons:
+    sonarcloud:
+        organization: "controlme"
 script:
     - cd ControlMe.WebApi
     - dotnet clean
     - dotnet restore
+    - sonar-scanner
     - dotnet build
+deploy:
+    provider: azure_web_apps
+    

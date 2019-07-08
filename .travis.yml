@@ -1,9 +1,12 @@
-﻿language: csharp
+﻿dist: trusty
+language: csharp
 mono: none
 dotnet: 2.1.502
 addons:
     sonarcloud:
         organization: "controlme"
+        token:
+            secure: "f1131bcabbe295ac9db6c4321b6cb334c35f909d"
 script:
     - sonar-scanner
     - cd ControlMe.WebApi

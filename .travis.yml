@@ -15,4 +15,6 @@ script:
     - dotnet build
 deploy:
     provider: azure_web_apps
+    on:
+        all_branches: true
     

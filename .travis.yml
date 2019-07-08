@@ -1,6 +1,6 @@
 ﻿language: csharp
 mono: none
-dotnet: 2.2
+dotnet: 2.1.502
 script:
     - cd ControlMe.WebApi
     - dotnet clean

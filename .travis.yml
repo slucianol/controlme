@@ -1,1 +1,7 @@
 ﻿language: csharp
+mono: none
+dotnet: 2.2.502
+script:
+    - dotnet clean
+    - dotnet restore
+    - dotnet build

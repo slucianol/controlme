@@ -15,6 +15,7 @@ script:
     - dotnet build
 deploy:
     provider: azure_web_apps
+    verbose: true
     on:
         all_branches: true
     

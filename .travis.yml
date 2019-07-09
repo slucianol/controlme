@@ -9,6 +9,7 @@ addons:
             secure: "f1131bcabbe295ac9db6c4321b6cb334c35f909d"
 script:
     - sonar-scanner
+script:
     - cd ControlMe.WebApi
     - dotnet clean
     - dotnet restore
@@ -16,9 +17,6 @@ script:
 deploy:
     provider: azure_web_apps
     verbose: true
-    username: "usr_sluciano"
-    password: "Marie2015"
-    site: "controlme"
     on:
         all_branches: true
     

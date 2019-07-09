@@ -1,23 +1,14 @@
-﻿dist: trusty
-install: true
-language: csharp
-mono: none
-dotnet: 2.1.502
-addons:
-    sonarcloud:
-        organization: "controlme"
-jobs:
+﻿jobs:
+    dist: trusty
+    install: true
+    language: csharp
+    mono: none
+    dotnet: 2.1.502
+    addons:
+        sonarcloud:
+            organization: "controlme"
     include:
         - stage: analyze_code
         script: sonar-scanner
         - stage: build
         script: cd ControlMe.WebApi
-        #- dotnet clean
-        #- dotnet restore
-        #- dotnet build
-    #- stage: deploy
-        #deploy:
-        #    provider: azure_web_apps
-        #    verbose: true
-        #    on:
-        #        all_branches: true

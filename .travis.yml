@@ -6,20 +6,21 @@ dotnet: 2.1.502
 addons:
     sonarcloud:
         organization: "controlme"
-script:
-    - sonar-scanner
-script:
-    - cd ControlMe.WebApi
-    - dotnet clean
-    - dotnet restore
-    - dotnet build
-deploy:
-    provider: azure_web_apps
-    username: usr_control_me # If AZURE_WA_USERNAME isn't set
-    password: ControlMe2015 # If AZURE_WA_PASSWORD isn't set
-    site: api-controlme # If AZURE_WA_SITE isn't set
-    #slot: development # (optional) If AZURE_WA_SLOT isn't set
-    verbose: true
-    on:
-        all_branches: true
+jobs:
+  include:
+    - stage: analyze_code
+        script:
+        - sonar-scanner
+    - stage: build
+        script:
+            - cd ControlMe.WebApi
+            - dotnet clean
+            - dotnet restore
+            - dotnet build
+    - stage: deploy
+        deploy:
+            provider: azure_web_apps
+            verbose: true
+            on:
+                all_branches: true
     

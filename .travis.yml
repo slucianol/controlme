@@ -7,11 +7,11 @@ addons:
     sonarcloud:
         organization: "controlme"
 jobs:
-  include:
-    - stage: analyze_code
-    script: sonar-scanner
-    - stage: build
-    script: cd ControlMe.WebApi
+    include:
+        - stage: analyze_code
+        script: sonar-scanner
+        - stage: build
+        script: cd ControlMe.WebApi
         #- dotnet clean
         #- dotnet restore
         #- dotnet build

@@ -16,6 +16,9 @@ script:
 deploy:
     provider: azure_web_apps
     verbose: true
+    username: "controlme\usr_sluciano"
+    password: "Marie2015"
+    site: "controlme"
     on:
         all_branches: true
     

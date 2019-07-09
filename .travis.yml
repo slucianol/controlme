@@ -2,8 +2,7 @@
 jobs:
   include:
     - stage: test
-      script: ./test 1
-    - # stage name not required, will continue to use `test`
-      script: ./test 2
+      script:
+        - cd ControlMe.WebApi
     - stage: deploy
-      script: ./deploy
+      script: skip

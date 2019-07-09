@@ -9,14 +9,12 @@ addons:
 jobs:
   include:
     - stage: analyze_code
-    script:
-        #- sonar-scanner
+    script: sonar-scanner
     - stage: build
-    script:
-        - cd ControlMe.WebApi
-        - dotnet clean
-        - dotnet restore
-        - dotnet build
+    script: cd ControlMe.WebApi
+        #- dotnet clean
+        #- dotnet restore
+        #- dotnet build
     #- stage: deploy
         #deploy:
         #    provider: azure_web_apps

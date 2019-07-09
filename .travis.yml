@@ -18,7 +18,7 @@ deploy:
     username: usr_control_me # If AZURE_WA_USERNAME isn't set
     password: ControlMe2015 # If AZURE_WA_PASSWORD isn't set
     site: api-controlme # If AZURE_WA_SITE isn't set
-    slot: development # (optional) If AZURE_WA_SLOT isn't set
+    #slot: development # (optional) If AZURE_WA_SLOT isn't set
     verbose: true
     on:
         all_branches: true

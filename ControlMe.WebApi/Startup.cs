@@ -30,7 +30,7 @@ namespace ControlMe.WebApi {
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v2", new Info() {
                     Title = "ControlMe WebApi",
-                    Version = "v1"
+                    Version = "v1" 
                 });
             });
         }

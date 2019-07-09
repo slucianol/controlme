@@ -1,4 +1,5 @@
 ﻿language: csharp
+install: true
 jobs:
   include:
     - stage: test

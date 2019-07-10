@@ -3,10 +3,10 @@ install: true
 mono: none
 dotnet: 2.1.502
 jobs:
-  addons:
-    sonarcloud:
-        organization: "controlme"
   include:
+    - addons:
+      sonarcloud:
+        organization: "controlme"
     - stage: code_analysis
       script:
         - sonar-scanner

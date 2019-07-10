@@ -1,9 +1,19 @@
 ﻿language: csharp
 install: true
+mono: none
+dotnet: 2.1.502
 jobs:
   include:
-    - stage: test
+    - stage: code_analysis
+      script:
+        - sonar-scanner
+    - stage: build
       script:
         - cd ControlMe.WebApi
     - stage: deploy
       script: skip
+      deploy:
+        provider: azure_web_apps
+        verbose: true
+        on:
+            all_branches: true

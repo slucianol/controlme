@@ -13,6 +13,9 @@ jobs:
     - stage: build
       script:
         - cd ControlMe.WebApi
+        - dotnet clean
+        - dotnet restore
+        - dotnet build --configuration Release --no-restore
     - stage: deploy
       script: skip
       deploy:

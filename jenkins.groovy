@@ -1,6 +1,10 @@
 pipeline{
   agent any
-  script{
-    sh 'dotnet --version'
+  stages{
+    stage("build"){
+      script{
+        sh 'dotnet --version'
+      }
+    }
   }
 }

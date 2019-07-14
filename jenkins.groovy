@@ -7,7 +7,7 @@ pipeline{
 					sh 'dotnet --version'
 					sh 'cd ControlMe.WebApi'
 					sh 'pwd'
-					sh 'ls -lZa'
+					sh 'ls -lZa' 
 				}
 			}
 		}

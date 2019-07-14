@@ -6,7 +6,7 @@ pipeline{
 				script{
 					sh 'dotnet --version'
 					sh 'cd ControlMe.WebApi'
-					sh 'dotnet build --configuration Release --output ..\\artifacts'
+					sh 'pwd'
 				}
 			}
 		}

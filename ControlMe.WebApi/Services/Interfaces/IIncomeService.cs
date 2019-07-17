@@ -8,7 +8,7 @@ namespace ControlMe.WebApi.Services.Interfaces {
     public interface IIncomeService {
         IQueryable<Income> Get();
         Income GetById(Guid id);
-        void Add(Income income);
+        Income Add(Income income);
         void Delete(Income income);
     }
 }

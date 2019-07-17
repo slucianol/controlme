@@ -6,11 +6,11 @@ pipeline{
 				script{
 					dir("${env.WORKSPACE}/ControlMe.WebApi"){
 						sh 'dotnet clean'
-						sh 'dotnet restore --configuration Release'
+						sh 'dotnet restore'
 						sh 'dotnet build --configuration Release --output ../artifacts --no-restore'
 					}
 					dir("${env.WORKSPACE}/ControlMe.Tests"){
-						sh 'dotnet test'
+						sh 'dotnet test --configuration Release'
 					}
 				}
 			}

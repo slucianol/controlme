@@ -15,9 +15,10 @@ namespace ControlMe.WebApi.Services.Implementations {
 
         }
 
-        public void Add(Income income) {
-            this.dbContext.Incomes.Add(income);
+        public Income Add(Income income) {
+            Income newIncome = this.dbContext.Incomes.Add(income).Entity;
             this.dbContext.SaveChanges();
+            return newIncome;
         }
 
         public void Delete(Income income) {

@@ -4,10 +4,14 @@ pipeline{
 		stage("build"){
 			steps{
 				script{
-					sh 'dotnet --version'
-					sh "cd ${env.WORKSPACE}/ControlMe.WebApi"
-					sh 'pwd'
-					sh 'ls -lZa'
+					dir("${env.WORKSPACE}/ControlMe.WebApi"){
+						sh 'dotnet clean'
+						sh 'dotnet restore --configuration Release'
+						sh 'dotnet build --configuration Release --output ../artifacts --no-restore'
+					}
+					dir("${env.WORKSPACE}/ControlMe.Tests"){
+						sh 'dotnet test'
+					}
 				}
 			}
 		}

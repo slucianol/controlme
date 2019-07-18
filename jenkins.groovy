@@ -38,7 +38,7 @@ pipeline{
 				script{
 					dir("${env.WORKSPACE}/artifacts"){
 						sh 'zip ControlMe.zip *'
-						sh 'az login --service-principal -u 5599cbb1-b58e-496b-977f-52560a42ca05 -p cEd:vdeY3qgSLv++h_f5D0Uidkoybkk6 --tenant 889609a6-7c8f-46c8-82ab-65c0744f4339'
+						sh "az login --service-principal -u ${credentials('AZURE_SERVICE_PRINCIPAL')} -p ${credentials('AZURE_SERVICE_PRINCIPAL_SECRET')} --tenant ${credentials('AZURE_SERVICE_PRINCIPAL_TENANT')}"
 						sh "az webapp deployment slot create --resource-group RG_DEVOPS_DAY --name api-controlme --slot ${WORKING_BRANCH}"
 						SLOT_CREATED = true
 						sh "az webapp deployment source config-zip --resource-group RG_DEVOPS_DAY --name api-controlme --src ControlMe.zip --slot ${WORKING_BRANCH}"
@@ -49,7 +49,7 @@ pipeline{
 		stage("tests"){
 			steps{
 				parallel load:{
-					echo 'Executing load testing...'
+					sh "curl https://api-controlme-${WORKING_BRANCH}.azurewebsites.net/ --insecure"
 				},
 				functional:{
 					echo 'Executing functional testing...'
@@ -61,9 +61,8 @@ pipeline{
 	post{
 		always{
 			script{
-				if(${SLOT_CREATED}){
-					echo 'Remove created slot...'
-					//sh "az webapp deployment slot delete --resource-group RG_DEVOPS_DAY --name api-controlme --slot ${WORKING_BRANCH}"
+				if(SLOT_CREATED == true){
+					sh "az webapp deployment slot delete --resource-group RG_DEVOPS_DAY --name api-controlme --slot ${WORKING_BRANCH}"
 				}
 			}
 		}

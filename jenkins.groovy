@@ -31,7 +31,9 @@ pipeline{
 		stage("deployment"){
 			steps{
 				script{
-					echo 'Deployment to azure web app'
+					dir("${env.WORKSPACE}/artifacts"){
+						azureWebAppPublish appName: 'api-controlme', azureCredentialsId: 'Jenkins Integration Azure Service Principal', dockerImageName: '', dockerImageTag: '', dockerRegistryEndpoint: [], filePath: '**/*', publishType: 'file', resourceGroup: 'RG_DEVOPS_DAY', slotName: 'development', sourceDirectory: '', targetDirectory: ''
+					}
 				}
 			}
 		}

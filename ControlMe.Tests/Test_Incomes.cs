@@ -23,7 +23,7 @@ namespace ControlMe.Tests {
                 Fixed = true,
                 Type = IncomeType.Honorarios
             };
-            Assert.Equal(IncomeType.Otro, newIncome.Type);
+            Assert.Equal(IncomeType.Honorarios, newIncome.Type);
         }
     }
 }

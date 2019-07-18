@@ -1,13 +1,14 @@
 pipeline{
 	agent any
 	environment {
-		WORKING_BRANCH = env.BRANCH_NAME.split('/')[1]
+		WORKING_BRANCH = env.BRANCH_NAME
 		SLOT_CREATED = false
 	}
 	stages{
 		stage("code_analysis"){
 			steps{
 				script{
+					echo "${WORKING_BRANCH}"
 					sh 'sonar-scanner'
 				}
 			}
@@ -58,9 +59,11 @@ pipeline{
 	}
 	post{
 		always{
-			if(SLOT_CREATED){
-				echo 'Remove created slot...'
-				//sh "az webapp deployment slot delete --resource-group RG_DEVOPS_DAY --name api-controlme --slot ${WORKING_BRANCH}"
+			steps{
+				if(SLOT_CREATED){
+					echo 'Remove created slot...'
+					//sh "az webapp deployment slot delete --resource-group RG_DEVOPS_DAY --name api-controlme --slot ${WORKING_BRANCH}"
+				}
 			}
 		}
 	}

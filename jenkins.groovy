@@ -34,11 +34,17 @@ pipeline{
 			}
 		}
 		stage("deployment"){
+			environment{
+				AZURE_SERVICE_PRINCIPAL = credentials('AZURE_SERVICE_PRINCIPAL')
+				AZURE_SERVICE_PRINCIPAL_SECRET = credentials('AZURE_SERVICE_PRINCIPAL_SECRET')
+				AZURE_SERVICE_PRINCIPAL_TENANT = credentials('AZURE_SERVICE_PRINCIPAL_TENANT')
+			}
 			steps{
 				script{
 					dir("${env.WORKSPACE}/artifacts"){
+						
 						sh 'zip ControlMe.zip *'
-						sh "az login --service-principal -u ${credentials('AZURE_SERVICE_PRINCIPAL')} -p ${credentials('AZURE_SERVICE_PRINCIPAL_SECRET')} --tenant ${credentials('AZURE_SERVICE_PRINCIPAL_TENANT')}"
+						sh "az login --service-principal -u ${AZURE_SERVICE_PRINCIPAL)} -p ${AZURE_SERVICE_PRINCIPAL_SECRET} --tenant ${AZURE_SERVICE_PRINCIPAL_TENANT}"
 						sh "az webapp deployment slot create --resource-group RG_DEVOPS_DAY --name api-controlme --slot ${WORKING_BRANCH}"
 						SLOT_CREATED = true
 						sh "az webapp deployment source config-zip --resource-group RG_DEVOPS_DAY --name api-controlme --src ControlMe.zip --slot ${WORKING_BRANCH}"

@@ -32,7 +32,7 @@ pipeline{
 			steps{
 				script{
 					dir("${env.WORKSPACE}/artifacts"){
-						azureWebAppPublish appName: 'api-controlme', azureCredentialsId: 'Jenkins Integration Azure Service Principal',  filePath: '*.*', publishType: 'file', resourceGroup: 'RG_DEVOPS_DAY', slotName: '', sourceDirectory: '', targetDirectory: ''
+						azureWebAppPublish appName: 'api-controlme', azureCredentialsId: 'Jenkins Integration Azure Service Principal',  filePath: '*.*', publishType: 'file', resourceGroup: 'RG_DEVOPS_DAY', slotName: 'development', sourceDirectory: '', targetDirectory: ''
 					}
 				}
 			}

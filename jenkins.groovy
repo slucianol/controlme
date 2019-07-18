@@ -38,6 +38,7 @@ pipeline{
 				script{
 					dir("${env.WORKSPACE}/artifacts"){
 						sh 'zip ControlMe.zip *'
+						sh 'az login --service-principal -u 5599cbb1-b58e-496b-977f-52560a42ca05 -p cEd:vdeY3qgSLv++h_f5D0Uidkoybkk6 --tenant 889609a6-7c8f-46c8-82ab-65c0744f4339'
 						sh "az webapp deployment slot create --resource-group RG_DEVOPS_DAY --name api-controlme --slot ${WORKING_BRANCH}"
 						SLOT_CREATED = true
 						sh "az webapp deployment source config-zip --resource-group RG_DEVOPS_DAY --name api-controlme --src ControlMe.zip --slot ${WORKING_BRANCH}"

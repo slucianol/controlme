@@ -1,6 +1,6 @@
 pipeline{
 	agent any
-	enviroment{
+	environment {
 		WORKING_BRANCH = env.BRANCH_NAME.split('/')[1]
 		SLOT_CREATED = false
 	}

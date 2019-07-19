@@ -28,8 +28,8 @@ namespace ControlMe.WebApi.Controllers {
         }
 
         [HttpPost]
-        public void Post([FromBody]Income income) {
-            this.incomeService.Add(income);
+        public Income Post([FromBody]Income income) {
+            return this.incomeService.Add(income); 
         }
 
         [HttpDelete]

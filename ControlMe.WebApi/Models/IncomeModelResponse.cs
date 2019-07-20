@@ -5,5 +5,5 @@ using System.Threading.Tasks;
 
 namespace ControlMe.WebApi.Models {
     public class IncomeModelResponse {
-    }
+    } 
 }

@@ -42,7 +42,6 @@ pipeline{
 			steps{
 				script{
 					dir("${env.WORKSPACE}/artifacts"){
-						
 						sh 'zip ControlMe.zip *'
 						sh "az login --service-principal -u ${AZURE_SERVICE_PRINCIPAL} -p ${AZURE_SERVICE_PRINCIPAL_SECRET} --tenant ${AZURE_SERVICE_PRINCIPAL_TENANT}"
 						sh "az webapp deployment slot create --resource-group RG_DEVOPS_DAY --name api-controlme --slot ${WORKING_BRANCH}"
@@ -59,7 +58,7 @@ pipeline{
 				},
 				functional:{
 					dir("${WORKSPACE}/functional_tests/ControMe"){
-						sh "/usr/lib/katalon/./katalon -runMode=console -noSplash -projectPath=\"ControlMe.prj\" -testSuitePath=\"Test Suites/Verify Incomes Endpoint\" -executionProfile=\"default\" -browserType=\"Web Service\" -g_TestUrl=\"https://api-controlme-${WORKING_BRANCH}.azurewebsites.net\""
+						sh "/usr/lib/katalon/./katalon -runMode=console -noSplash -projectPath=\"${WORKSPACE}/functional_tests/ControlMe/ControlMe.prj\" -testSuitePath=\"Test Suites/Verify Incomes Endpoint\" -executionProfile=\"default\" -browserType=\"Web Service\" -g_TestUrl=\"https://api-controlme-${WORKING_BRANCH}.azurewebsites.net\""
 					}
 				},
 				failFast: true

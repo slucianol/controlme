@@ -59,7 +59,7 @@ pipeline{
 				},
 				functional:{
 					dir("${WORKSPACE}/functional_tests/ControMe"){
-						sh "./katalon -runMode=console -noSplash -projectPath=\"ControlMe.prj\" -testSuitePath=\"Test Suites/Verify Incomes Endpoint\" -executionProfile=\"default\" -browserType=\"Web Service\" -g_TestUrl=\"https://api-controlme-${WORKING_BRANCH}.azurewebsites.net\""
+						sh "/usr/lib/katalon/./katalon -runMode=console -noSplash -projectPath=\"ControlMe.prj\" -testSuitePath=\"Test Suites/Verify Incomes Endpoint\" -executionProfile=\"default\" -browserType=\"Web Service\" -g_TestUrl=\"https://api-controlme-${WORKING_BRANCH}.azurewebsites.net\""
 					}
 				},
 				failFast: true

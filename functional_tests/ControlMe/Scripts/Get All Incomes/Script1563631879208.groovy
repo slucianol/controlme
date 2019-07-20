@@ -17,5 +17,5 @@ response = WS.sendRequest(findTestObject('Get All Incomes', [('TestUrl') : Globa
 
 WS.verifyResponseStatusCode(response, 200)
 
-WS.verifyElementsCount(response, 'response', 22)
+WS.verifyElementsCount(response, 'response', 42)
 

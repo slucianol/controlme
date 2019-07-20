@@ -54,7 +54,9 @@ pipeline{
 		stage("tests"){
 			steps{
 				parallel load:{
-					sh "curl https://api-controlme-${WORKING_BRANCH}.azurewebsites.net/api/Incomes --insecure"
+					dir("${WORKSPACE}/load_tests"){
+						sh "/var/lib/jmeter/bin/./jmeter -n -t ControlMe.jmx -GTestProtocol=https -GTestServer=api-controlme-${WORKING_BRANCH}.azurewebsites.net"
+					}
 				},
 				functional:{
 					dir("${WORKSPACE}/functional_tests/ControMe"){

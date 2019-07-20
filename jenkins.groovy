@@ -55,10 +55,12 @@ pipeline{
 		stage("tests"){
 			steps{
 				parallel load:{
-					sh "curl https://api-controlme-${WORKING_BRANCH}.azurewebsites.net/ --insecure"
+					sh "curl https://api-controlme-${WORKING_BRANCH}.azurewebsites.net/api/Incomes --insecure"
 				},
 				functional:{
-					echo 'Executing functional testing...'
+					dir("/usr/lib/katalon/"){
+						sh "./katalon -runMode=console -consoleLog -noSplash -projectPath=\"${WORKSPACE}/funtional_tests/ControlMe/ControlMe.prj\" -testSuitePath=\"Test Suites/Verify Incomes Endpoint\" -executionProfile=\"default\" -browserType=\"Web Service\" -g_TestUrl=\"https://api-controlme-${WORKING_BRANCH}.azurewebsites.net\""
+					}
 				},
 				failFast: true
 			}

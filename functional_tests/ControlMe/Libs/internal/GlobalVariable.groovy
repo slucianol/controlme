@@ -12,12 +12,12 @@ public class GlobalVariable {
     /**
      * <p></p>
      */
-    public static Object g_TestUrl
+    public static Object TestUrl
      
     /**
      * <p></p>
      */
-    public static Object g_IncomeId
+    public static Object IncomeId
      
 
     static {
@@ -26,8 +26,8 @@ public class GlobalVariable {
 			selectedVariables += TestCaseMain.getGlobalVariables(RunConfiguration.getExecutionProfile())
             selectedVariables += RunConfiguration.getOverridingParameters()
     
-            g_TestUrl = selectedVariables['g_TestUrl']
-            g_IncomeId = selectedVariables['g_IncomeId']
+            TestUrl = selectedVariables['TestUrl']
+            IncomeId = selectedVariables['IncomeId']
             
         } catch (Exception e) {
             TestCaseMain.logGlobalVariableError(e)

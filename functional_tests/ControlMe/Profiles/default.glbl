@@ -7,11 +7,11 @@
    <GlobalVariableEntity>
       <description></description>
       <initValue>'https://localhost:44332'</initValue>
-      <name>g_TestUrl</name>
+      <name>TestUrl</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
       <initValue>''</initValue>
-      <name>g_IncomeId</name>
+      <name>IncomeId</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

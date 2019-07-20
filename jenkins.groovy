@@ -58,8 +58,8 @@ pipeline{
 					sh "curl https://api-controlme-${WORKING_BRANCH}.azurewebsites.net/api/Incomes --insecure"
 				},
 				functional:{
-					dir("/usr/lib/katalon/"){
-						sh "./katalon -runMode=console -consoleLog -noSplash -projectPath=\"${WORKSPACE}/funtional_tests/ControlMe/ControlMe.prj\" -testSuitePath=\"Test Suites/Verify Incomes Endpoint\" -executionProfile=\"default\" -browserType=\"Web Service\" -g_TestUrl=\"https://api-controlme-${WORKING_BRANCH}.azurewebsites.net\""
+					dir("${WORKSPACE}/functional_tests/ControMe"){
+						sh "./katalon -runMode=console -noSplash -projectPath=\"ControlMe.prj\" -testSuitePath=\"Test Suites/Verify Incomes Endpoint\" -executionProfile=\"default\" -browserType=\"Web Service\" -g_TestUrl=\"https://api-controlme-${WORKING_BRANCH}.azurewebsites.net\""
 					}
 				},
 				failFast: true

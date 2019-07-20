@@ -15,7 +15,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import groovy.json.JsonSlurper as JsonSlurper
 import internal.GlobalVariable as GlobalVariable
 
-response = WS.sendRequest(findTestObject('Create an income', [('TestUrl') : GlobalVariable.g_TestUrl, ('IncomeDate') : '2019-04-15T04:00Z'
+response = WS.sendRequest(findTestObject('Create an income', [('TestUrl') : GlobalVariable.TestUrl, ('IncomeDate') : '2019-04-15T04:00Z'
             , ('IncomeType') : '1', ('IncomeAmount') : 80000]))
 
 WS.verifyResponseStatusCode(response, 200)
@@ -28,5 +28,5 @@ incomeId = parsedResponse.get('id')
 
 WS.verifyMatch(incomeId, '[0-9a-z\\-]*', true)
 
-GlobalVariable.g_IncomeId = incomeId
+GlobalVariable.IncomeId = incomeId
 

@@ -13,7 +13,7 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-response = WS.sendRequest(findTestObject('Delete an income', [('TestUrl') : GlobalVariable.g_TestUrl, ('incomeId') : GlobalVariable.g_IncomeId]))
+response = WS.sendRequest(findTestObject('Delete an income', [('TestUrl') : GlobalVariable.TestUrl, ('incomeId') : GlobalVariable.IncomeId]))
 
 WS.verifyResponseStatusCode(response, 200)
 

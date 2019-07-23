@@ -14,5 +14,5 @@ namespace ControlMe.WebApi.Models {
         [Required]
         public bool Fixed { get; set; }
         public IncomeType Type { get; set; }
-    }
+    } 
 }

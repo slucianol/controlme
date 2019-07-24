@@ -4,7 +4,6 @@
   <description />
   <settings>
     <options>
-      <option name="branchFilter" value="+:refs/heads/features/*" />
       <option name="cleanBuild" value="true" />
       <option name="excludeDefaultBranchChanges" value="true" />
     </options>

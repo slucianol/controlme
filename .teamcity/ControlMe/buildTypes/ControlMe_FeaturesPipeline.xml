@@ -4,6 +4,7 @@
   <description />
   <settings>
     <options>
+      <option name="branchFilter" value="+:testing*" />
       <option name="cleanBuild" value="true" />
       <option name="excludeDefaultBranchChanges" value="true" />
     </options>

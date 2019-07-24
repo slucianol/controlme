@@ -13,6 +13,6 @@ namespace ControlMe.WebApi.Models {
         public Source TransactionSource { get; set; }
         [Required]
         public bool Fixed { get; set; }
-        public IncomeType Type { get; set; } 
+        public IncomeType Type { get; set; }
     } 
 }

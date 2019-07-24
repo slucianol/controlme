@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<vcs-root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="51a76887-4729-4ebb-8544-80ee847dd261" type="jetbrains.git" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2018.1/project-config.xsd">
+<vcs-root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="51a76887-4729-4ebb-8544-80ee847dd261" type="jetbrains.git" modification-check-interval="10" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2018.1/project-config.xsd">
   <name>ControlMe GitHub</name>
   <param name="agentCleanFilesPolicy" value="ALL_UNTRACKED" />
-  <param name="agentCleanPolicy" value="ON_BRANCH_CHANGE" />
+  <param name="agentCleanPolicy" value="ALWAYS" />
   <param name="authMethod" value="PASSWORD" />
   <param name="branch" value="refs/heads/develop" />
   <param name="ignoreKnownHosts" value="true" />

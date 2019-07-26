@@ -10,6 +10,6 @@ namespace ControlMe.WebApi.Models {
         public DateTime ExecutionDate { get; set; }
         public Source TransactionSource { get; set; }
         public bool Fixed { get; set; }
-        public IncomeType Type { get; set; }
+        public IncomeType Type { get; set; } 
     } 
 }

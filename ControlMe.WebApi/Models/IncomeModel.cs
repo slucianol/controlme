@@ -12,4 +12,4 @@ namespace ControlMe.WebApi.Models {
         public bool Fixed { get; set; }
         public IncomeType Type { get; set; } 
     } 
-}
+} 

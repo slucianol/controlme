@@ -7,6 +7,7 @@ pipeline{
                     sh "dotnet clean"
                     sh "dotnet restore"
                     sh "dotnet publish --no-restore --configuration Release --output ../artifacts"
+                    archiveArtifacts artifacts: '../artifacts/*.*', onlyIfSuccessfull: true
                 }
             }
         }
